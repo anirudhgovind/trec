@@ -126,18 +126,18 @@ TREC2 <- function(argTREC, clustering=TRUE, pvar=NULL, groups=2){
       }
     })
 
-    dendplot <- function(){
-      idx <- sapply(trni, length)
+    # dendplot <- function(){
+    #   idx <- sapply(trni, length)
+    #
+    #   par(mfcol=c(1,sum(idx>1)))
+    #   for(j in which(idx > 1))
+    #   {
+    #     plot(Dend[[j]], main=names(trn)[j])
+    #   }
+    #   par(mfcol=c(1,1))
+    # }
 
-      par(mfcol=c(1,sum(idx>1)))
-      for(j in which(idx > 1))
-      {
-        plot(Dend[[j]], main=names(trn)[j])
-      }
-      par(mfcol=c(1,1))
-    }
-
-    out0 <- dendplot
+    # out0 <- dendplot
     Gidx <- which(sapply(trn, length) > 0)
 
     na.idx <- which(sapply(trni, length) == 0)
@@ -176,34 +176,34 @@ TREC2 <- function(argTREC, clustering=TRUE, pvar=NULL, groups=2){
       )
     )
 
-  fig.trends <- subplot(
-    lapply(Gidx, function(j){
-      fig <- subset(TRN1, trn==j) %>%
-        ggplot() +
-        geom_line(aes(x=x, y=t, col=V)) +
-        theme(
-          axis.title = element_blank()
-        ) +
-        ylim(ran) +
-        facet_wrap(~group)
+  # fig.trends <- subplot(
+  #   lapply(Gidx, function(j){
+  #     fig <- subset(TRN1, trn==j) %>%
+  #       ggplot() +
+  #       geom_line(aes(x=x, y=t, col=V)) +
+  #       theme(
+  #         axis.title = element_blank()
+  #       ) +
+  #       ylim(ran) +
+  #       facet_wrap(~group)
+  #
+  #     if(j != 1)
+  #     {
+  #       fig <- fig + theme(
+  #         axis.text.y = element_blank(),
+  #         axis.ticks.y = element_blank()
+  #       )
+  #     }
+  #
+  #     return(fig)
+  #   })
+  # )
 
-      if(j != 1)
-      {
-        fig <- fig + theme(
-          axis.text.y = element_blank(),
-          axis.ticks.y = element_blank()
-        )
-      }
-
-      return(fig)
-    })
-  )
-
-  print(fig.trends)
+  # print(fig.trends)
 
   Out <- list(
-    dend = out0,
-    fig.trends = fig.trends,
+    # dend = out0,
+    # fig.trends = fig.trends,
     trn = trn
   )
 

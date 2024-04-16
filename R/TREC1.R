@@ -287,17 +287,17 @@ TREC1 <- function(Y, time.points=NULL, remove.num=NULL){
   )
 
   Out <- list(
-    fig.RawData = fig.RawData,
-    fig.StdData = fig.StdData,
-    fig.ctrend = fig.ctrend,
-    fig.trend = ggplotly(fig.trend),
+    # fig.RawData = fig.RawData,
+    # fig.StdData = fig.StdData,
+    # fig.ctrend = fig.ctrend,
+    # fig.trend = ggplotly(fig.trend),
     argTREC = argTREC,
-    remove = Vrm,
-    Vnames = Vnames,
-    empty = empvar
+    # remove = Vrm,
+    Vnames = Vnames
+    # empty = empvar
   )
 
-  print(Out$fig.trend)
+  # print(Out$fig.trend)
 
   return(Out)
 }
